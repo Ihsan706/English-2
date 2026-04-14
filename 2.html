@@ -1,0 +1,161 @@
+<html lang="EN">
+<head>
+<meta  charset="UTF-8" />
+<style>
+.img , .button{
+	border-radius: 20px;
+    overflow: clip;
+	padding:0px;
+}
+.img{
+	width:25vw;
+	height: 20vh;
+	object-fit: cover;
+}
+.button{
+	margin:2vw;
+	background: linear-gradient(45deg, #c1f7ff, transparent);
+	
+	animation-timing-function: ease-in-out;
+    animation-name: options;
+    animation-duration: 3s;
+	
+	
+	background: #222;
+    border-radius: 15px;
+    padding: 15px;
+    width: 30vw;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    color: #fff;
+	margin:0px;
+}
+.button:hover{
+	background: linear-gradient(45deg, #00fff0, white);
+}
+.button:hover .img{
+	scale: 1.5;
+    transform: translate(0px, 15%);
+}
+*{
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    transform-style: preserve-3d;
+}
+h1{
+	z-index:2;
+}
+@keyframes option{
+	0%{
+		transform: rotateZ(-45deg) translate(50%, 50%);
+		opacity:0;
+	}
+	100%{
+		transform: rotateZ(0deg) translate(-0%, -0%);
+		opacity:1;
+	}
+}
+@keyframes options{
+	0%{
+		transform: rotateZ(45deg);
+		opacity:0;
+	}
+	100%{
+		transform: rotateZ(0deg);
+		opacity:1;
+	}
+}
+.body{
+	background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 0px/*30px*/;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 80vw;
+	height:80vh;
+	
+	animation-timing-function: ease-in-out;
+    animation-name: option;
+    animation-duration: 4.5s;
+}
+.div1{
+	display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+body{
+	margin:0px;
+}
+/*#7ee1ffaa*/
+html{
+    background: linear-gradient(20deg, #0000b9, #7ee1ffc4);
+	overflow:clip;
+}
+.body{
+	border-radius: 20px;
+}
+body{
+	margin: 0;
+    font-family: "Tahoma", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /*background: linear-gradient(135deg, #1a1a1a, #444);*/
+}
+
+*{
+font-size:2.5vw;
+}
+</style>
+</head>
+<body>
+
+<div class="body">
+
+<div class="div1">
+<button type="button" class="button" onclick="source()">
+<img class="img" src="w.webp" />
+<h1>sources</h1>
+</button>
+
+
+<button type="button" class="button" onclick="fulltext()">
+<img class="img" src="q.webp" />
+<h1>the Research</h1>
+</button>
+
+
+
+<button type="button" class="button" onclick="download()">
+<img class="img" src="q.jpg" />
+<h1>download the Research</h1>
+</button>
+
+
+<button type="button" class="button" onclick="more()">
+<img class="img" src="e.webp" />
+<h1>download the code</h1>
+</button>
+</div>
+</div>
+<script>
+function more(){
+	window.open("3.html" , "_self");
+}
+
+function fulltext(){
+	window.open("4.html" , "_self");
+}
+
+function download(){
+	window.open("6.html" , "_self");
+}
+
+function source(){
+	window.open("3.html" , "_self");
+}
+</script>
+</body>
+</html>

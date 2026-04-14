@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Center Text Split Animation</title>
+  <style>
+html,body{
+	background:black;
+}
+*{
+    margin: 0px;
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:10vw;
+  color:white;
+}
+#background {
+	background:black;
+	color:black;
+	z-index:1;
+	filter: blur(20px);
+}
+
+#main_text {
+	z-index:2;
+}
+
+#ToTheLeft {
+	animation:Left 1s ease;
+	animation-delay: 1s;
+	opacity: 0;
+}
+
+#ToTheTop {
+	animation:Top 2s ease;
+	animation-delay: 1s;
+	opacity: 0;
+	transform: translate(-50%, -50%);
+}
+
+@keyframes Top{
+	0% {
+		opacity: 0;
+		filter: blur(10px);
+		transform: translate(-50%, -50%);
+	}
+	100% {
+		opacity: 1;
+		filter: blur(0px);
+		transform: translate(-50%, -150%);
+	}
+}
+
+@keyframes Left{
+	0% {
+		opacity: 0;
+		filter: blur(10px);
+		transform: translate(-50%, -50%);
+	}
+	100% {
+		opacity: 1;
+		filter: blur(0px);
+		transform: translate(-190%, -50%);
+	}
+}
+
+/* not importent */
+#glow {
+	background: #00000000;
+    color: #00000000;
+    z-index: 2;
+    filter: blur(0px);
+	
+	animation:glow 1s ease;
+	animation-delay: 1s;
+	opacity: 0;
+}
+
+@keyframes glow{
+	0% {
+		opacity: 0;
+		background: #00000000;
+		color: #00000000;
+		filter: blur(0px);
+	}
+	100% {
+		opacity: 1;
+		color: #ffffff;
+		filter: blur(10px);
+	}
+}
+  </style>
+</head>
+<!--<body>-->
+<h1 class="center" id="background">English</h1>
+<h1 class="center" id="glow">English</h1>
+<h1 class="center" id="main_text">English</h1>
+<h1 class="center" id="ToTheTop">Ihsan</h1>
+<h1 class="center" id="ToTheLeft" style="font-size: 7vw;">subject</h1>
+<!--
+<script>
+const Top = document.getElementById("ToTheTop");//make sure this is the last animation to end
+const Left = document.getElementById("ToTheLeft");//make sure this is the last animation to end
+
+Top.addEventListener("animationend", () => {
+	Top.style.transform = "translate(-50%, -150%)";
+});
+
+Left.addEventListener("animationend", () => {
+	Left.style.transform = "translate(50%, -50%)";
+});
+</script>
+</body>
+</html>-->

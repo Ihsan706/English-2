@@ -1,0 +1,212 @@
+<meta charset="UTF-8" />
+<body id="whatever">
+<script id="script" src="sound.js"></script>
+<style>
+#EveryThing{
+	width:100%;
+	height: 100%;
+}
+
+body{
+	margin:0px;
+}
+</style>
+	<div id="EveryThing">
+		<style>
+			.importent {
+				background: black no-repeat center center;/* the js will give it an img so there is no need to put one */
+				background-size: cover;
+
+				/* Make the background show through the text */
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+
+				/* Optional: smooth edges for better look */
+				/* -webkit-text-fill-color: transparent; */
+				
+				
+				/* the rest of the style */
+				font-size: 10vw;
+				position: relative;
+				margin: 0px;
+				/* width: fit-content; */
+				width:100vw;
+				top:0px;
+			}
+			  
+			h1{
+				/* the rest of the style */
+				font-size: 10vw;
+				position: relative;
+				margin: 0px;
+				/* width: fit-content; */
+				width:100vw;
+				/* width: fit-content; */
+				display: inline;
+				
+				text-align:center;
+			}
+			*{
+			    direction: ltr;
+			}
+			/* {
+				transform-style: preserve-3d;
+				transition-timing-function: ease-in-out;
+				transition-duration: 0.25s;
+			}
+			*/
+			
+			#all_words{
+				width: fit-content;
+				justify-self: anchor-center;
+			}
+		</style>
+		<div id="all_words">
+			<h1 id="rest">9th grade<br>the subject:</h1>
+			<h1 id="word" class="importent">English</h1><!-- this is the main word that is foucesed on -->
+		</div>
+	</div>
+	<script>
+		let word = document.getElementById("word");
+		let rest = document.getElementById("rest");
+		let page = document.getElementById("whatever");//this is the background
+		//const imgs = ["q.webp" , "w.webp" , "e.webp" , "r.webp"];//use webp for speed
+		const imgs = [];//use webp for speed
+		const imgs_folder = "an_imgs\\";
+		const change_time = 100;
+		let number = 1;
+		let speed = 200;
+		let ImgToUse = [];
+		
+		
+		/*
+		posseble code */
+		for (let i = 0; i < 24; i++) {
+			// Append the current number to the array
+			imgs.push(i+".webp");
+		}
+		/**/
+		console.log(imgs); // Output: [0, 1, 2, 3, 4]
+
+		
+		
+		//const Script = document.getElementById("script");
+		const EveryThing = document.getElementById("EveryThing");
+		let nextanimation_html;
+/*
+		for (hello in imgs){
+			console.log(imgs[hello]);
+		}
+*/
+		function NewScript(jsfile){
+		    const script = document.createElement("script");
+			script.src = jsfile;
+			script.id = "animation"; // mark it
+			script.defer = true;// optional
+			
+			document.body.appendChild(script);
+		}
+
+		async function nextanimation(){
+			nextanimation_html = await fetch("1.html");
+			nextanimation_html = await nextanimation_html.text();
+			EveryThing.innerHTML = await nextanimation_html
+			NewScript("animation.js");
+		}
+
+		for (ImgArray in imgs){
+			ImgToUse[ImgArray] = new Image();
+			ImgToUse[ImgArray].src = imgs_folder + imgs[ImgArray]
+		}
+
+		page.style.transitionDuration = "0.05s";
+		page.style.transitionTimingFunction = "ease-in-out";
+		
+		
+		function nextframe(number){
+			NextImage(number);
+			//playsound here
+			PlaySound();
+		}
+	
+
+		function NextImage(number){
+			word.style.backgroundImage = 'url("'+ImgToUse[number].src+'")';
+			console.log('url("'+ImgToUse[number].src+'")')
+		}
+
+		//word.innerHTML = words[number];
+
+		async function while_the_loop(){
+			
+			if(speed <= change_time){
+				//rest.innerHTML = "";
+				word.style.width = "100vw";
+				word.style.position = "absolute";
+				word.style.top = "50%";
+				word.style.left = "50%";
+				word.style.transform = "translate(-50%, -50%)";
+				///word.style.textAlign = "center";
+				//page.style.background = "black";
+				/*
+				page.style.display = "flex";
+				page.style.justifyContent = "center";
+				page.style.alignItems = "center";
+				  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+				*/
+				rest.style.position = "absolute";
+				rest.innerHTML = "";
+			}
+			
+			/*
+			if(word.style.fontSize == "50vw"){
+				word.style.transitionDuration = "0s";
+				word.style.transitionTimingFunction = "unset";
+			}
+			*/
+			if(speed <= change_time*1.5){
+				//word.style.top = "25vh";
+				//word.style.fontSize = "50vw"//calc((25vh + 25vw)/2)";
+				page.style.background = "black";
+				rest.style.color = "white";
+				//rest.style.position = "absolute";
+				//rest.innerHTML = "";
+			}
+			
+			//if(Math.trunc(speed) <= (change_time*2.5) && Math.trunc(speed) >= change_time){
+				//word.style.transitionDuration = "0.05s";
+				//word.style.transitionTimingFunction = "ease-in-out";
+				//page.style.transformStyle = "preserve-3d";
+			//}
+			
+		}
+
+		function startLoop() {
+			setTimeout(() => {
+				nextframe(number);
+				number = (number + 1) % imgs.length;
+				  
+				if (speed * 1.5 >= change_time) {
+					startLoop();
+				}else{
+					word.style.color = "white";
+					nextanimation();
+					speed = null;
+				}
+				
+				speed = (speed * 95) / 100;
+			}, speed);
+			console.log(speed);
+			
+			while_the_loop()
+		}
+		
+		document.addEventListener("click", () => {
+			startLoop();
+		}, { once: true });
+	</script>
+</body>

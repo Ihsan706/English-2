@@ -1,0 +1,14 @@
+<ol>
+<li>
+<h3>A Vibrant Society </h3>
+<p>“Vision 2030 is creating a vibrant society in which all citizens can thrive and pursue their passions. A strong social infrastructure is underpinned by a society that values coltural traditions, national pride, and modern amenities all while embodying the spirit of modern Islam and providing effective social services.” - vision2030.gov </p>
+</li>
+<li>
+<h3>A Thriving Economy </h3>
+<p>“Vision 2030 creates a thriving economy where everyone has the opportunity to succeed. By providing a supportive business environment for businesses of all sizes and investing in education to prepare for the jobs of the future, Saudi Arabia is creating an exciting and prosperous future for all.” - vision2030.gov</p>
+</li>
+<li>
+<h3>An Ambitious Nation</h3>
+<p>“Vision 2030 creates an ambitious nation committed to efficiency and accountability at all levels, including building a government that is effective, transparent, accountable, empowering, and high-performing.” - vision2030.gov </p>
+</li>
+</ol>
